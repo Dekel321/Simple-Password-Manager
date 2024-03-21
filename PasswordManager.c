@@ -2,22 +2,18 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 
-
 char line1[100];
 char line2[100];
 
 char user[50];
 char pass[50];
 
-// option 1----------------------------------------------------------------------
 void op1(char locat[50]){
     char location[100];
     int status = mkdir(locat);
     if (status == -1) {
         printf("Error creating folder.\n");
-        
     }
-
     sprintf("password.txt", "%s/password.txt", locat);
 
 
@@ -38,10 +34,9 @@ void op1(char locat[50]){
     printf("Saved in ");
 }
 
-// option 2----------------------------------------------------------------------
+
 void op2() {
-    // Future addition: copy to clipboard
-    //char location[100]
+
 
     FILE *fread;
     fread = fopen("password.txt", "r");
@@ -53,11 +48,6 @@ void op2() {
 
     fclose(fread);
 }
-
-
-
-
-
 
 
 void op1_1(){
@@ -106,7 +96,7 @@ void op2_2() {
 
     printf("Done");
 }
-// if 1-3 -------------------------------------------------------------------------
+
 void op3_3() {
 
     FILE *fpass;
@@ -129,8 +119,6 @@ void op3_3() {
     printf("Done");
 }
 
-
-
 int main() {
 
     int option;
@@ -140,8 +128,6 @@ int main() {
     scanf("%d", &option);
 
 
-
-// if 1 ------------------------------------------
     if (option == 1) {
     char infoinput[100];
     printf("What is this password for: ");
@@ -149,28 +135,28 @@ int main() {
         op1(infoinput);
         return 0;
     }
-// if 2 -------------------------------------------------------------------------
+
     else if (option == 2) {
         op2();
         return 0;
     }
-// if 3 -------------------------------------------------------------------------
+
     else if (option == 3) {
         int option1;
 
         printf("1 User And Password: \n2 User Only: \n3 Password only: ");
 
         scanf("%d", &option1);
-// if 1-1 -------------------------------------------------------------------------
+
         if (option1 == 1) {
         op1_1();
 
     return 0;
-// if 1-2 -------------------------------------------------------------------------
+
         } else if (option1 == 2) {
 
         return 0;
-// if 1-3 -------------------------------------------------------------------------
+
         } else if (option1 == 3) {
         op3_3();
 
@@ -185,10 +171,6 @@ int main() {
     if (option <= 1 >= 3)
     break;
     }
-
-
+    
     return 0;
 }
-
-
-
